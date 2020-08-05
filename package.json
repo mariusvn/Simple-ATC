@@ -2,33 +2,56 @@
   "name": "simple-atc",
   "version": "0.1.0",
   "private": true,
+  "homepage": "src",
+  "main": "src/electron.js",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "electron": "^9.1.2",
+    "electron-is-dev": "^1.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "typescript": "^3.9.7"
+  },
+  "devDependencies": {
+    "customize-cra": "^1.0.0",
+    "electron-builder": "^22.8.0",
+    "electron-reload": "^1.5.0",
+    "node-sass": "^4.14.1",
+    "nodemon": "^2.0.4",
+    "react-app-rewired": "^2.1.6"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "cross-env BROWSER=none npm run react-start",
+    "react-start": "npx react-app-rewired start",
+    "react-build": "npx react-app-rewired build",
+    "react-test": "npx react-app-rewired test",
+    "react-eject": "npx react-app-rewired eject",
+    "electron-start": "npx electron .",
+    "electron-watch": "cross-env NODE_ENV=dev nodemon --exec \"\"npx electron .\"\"",
+    "electron-builder-pack": "electron-builder --dir",
+    "electron-builder-dist": "electron-builder"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
+  "build": {
+    "appId": "com.mariusvnh.atc",
+    "directories": {
+      "buildResources": "src/assets"
+    },
+    "win": {
+      "category": "games"
+    }
+  },
   "browserslist": {
     "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+      "last 1 electron version"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 electron version"
     ]
   }
 }
