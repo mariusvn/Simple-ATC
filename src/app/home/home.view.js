@@ -1,5 +1,6 @@
 import React from 'react';
-import Viewport from "./viewport.component";
+import Viewport from "../viewport/viewport.component";
+import Console from "../console/console.component";
 import './home.style.scss';
 import '@styles';
 
@@ -19,9 +20,8 @@ export default function Home() {
           {/* Plane lists */}
         </div>
       </div>
-      <div className="main-bottom flex-layout column">
-        <div className="console-log-wrapper flex">{/* Console log */}</div>
-        <div className="console-input-wrapper">{/* Console input */}</div>
+      <div className="main-bottom">
+        <Console/>
       </div>
     </div>
   );

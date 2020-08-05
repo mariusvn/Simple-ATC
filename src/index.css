@@ -16,3 +16,13 @@ html, body, #root, .App {
   width: 100%;
   height: 100%;
 }
+
+input:focus {
+  outline: none;
+}
+input {
+  background-color: #393939;
+  color: #fff;
+  border: 1px solid #4f4f4f;
+  border-radius: 4px;
+}

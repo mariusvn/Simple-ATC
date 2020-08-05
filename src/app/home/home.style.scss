@@ -2,7 +2,6 @@
 .home {
   height: 100%;
   width: 100%;
-  display: block;
   background-color: #242424;
 
   .main-top {
@@ -13,9 +12,5 @@
 
   .main-bottom {
     height: 20%;
-    padding: 10px;
-    .console-input-wrapper {
-      height: 30px;
-    }
   }
 }
