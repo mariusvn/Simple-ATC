@@ -1,0 +1,48 @@
+{
+	"name": "Test Airport",
+	"icao": "ZZZZ",
+	"height": 56,
+	"runaways": [
+		{
+			"name": [
+				"22",
+				"17"
+			],
+			"course": 227,
+			"points": [
+				"1",
+				"2"
+			]
+		}
+	],
+	"points": {
+		"1": {
+			"position": {
+				"x": 10,
+				"y": 10
+			},
+			"connections": [
+				"2"
+			]
+		},
+		"2": {
+			"position": {
+				"x": 15,
+				"y": 15
+			},
+			"connections": [
+				"1",
+				"3"
+			]
+		},
+		"3": {
+			"position": {
+				"x": 20,
+				"y": 10
+			},
+			"connections": [
+				"2"
+			]
+		}
+	}
+}

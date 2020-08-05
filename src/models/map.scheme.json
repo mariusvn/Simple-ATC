@@ -1,0 +1,264 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"$id": "http://example.com/example.json",
+	"type": "object",
+	"title": "The root schema",
+	"description": "The root schema comprises the entire JSON document.",
+	"default": {},
+	"examples": [
+		{
+			"name": "Test Airport",
+			"icao": "ZZZZ",
+			"height": 56,
+			"runaways": [
+				{
+					"name": [
+						"22",
+						"17"
+					],
+					"course": 227,
+					"points": [
+						"1",
+						"2"
+					]
+				}
+			],
+			"points": {
+				"1": {
+					"position": {
+						"x": 10,
+						"y": 10
+					},
+					"connections": [
+						"2"
+					]
+				},
+				"2": {
+					"position": {
+						"x": 15,
+						"y": 15
+					},
+					"connections": [
+						"1",
+						"3"
+					]
+				},
+				"3": {
+					"position": {
+						"x": 20,
+						"y": 10
+					},
+					"connections": [
+						"2"
+					]
+				}
+			}
+		}
+	],
+	"required": [
+		"name",
+		"icao",
+		"height",
+		"runaways",
+		"points"
+	],
+	"properties": {
+		"name": {
+			"$id": "#/properties/name",
+			"type": "string",
+			"title": "Name",
+			"description": "Name of the airport",
+			"default": "",
+			"examples": [
+				"Franfurt Intl Airport"
+			]
+		},
+		"icao": {
+			"$id": "#/properties/icao",
+			"type": "string",
+			"title": "The icao schema",
+			"description": "ICAO code of the airport",
+			"default": "",
+			"examples": [
+				"LFMT"
+			]
+		},
+		"height": {
+			"$id": "#/properties/height",
+			"type": "integer",
+			"title": "The height schema",
+			"description": "Height of the airport terrain",
+			"default": 0,
+			"examples": [
+				56
+			]
+		},
+		"runaways": {
+			"$id": "#/properties/runaways",
+			"type": "array",
+			"title": "The runaways schema",
+			"description": "A list of the airport runaways",
+			"default": [],
+			"examples": [
+				[
+					{
+						"name": [
+							"22",
+							"17"
+						],
+						"course": 227,
+						"points": [
+							"1",
+							"2"
+						]
+					}
+				]
+			],
+			"additionalItems": true,
+			"items": {
+				"$id": "#/properties/runaways/items",
+				"anyOf": [
+					{
+						"$id": "#/properties/runaways/items/anyOf/0",
+						"type": "object",
+						"title": "The first anyOf schema",
+						"description": "An explanation about the purpose of this instance.",
+						"default": {},
+						"examples": [
+							{
+								"name": [
+									"22",
+									"17"
+								],
+								"course": 227,
+								"points": [
+									"1",
+									"2"
+								]
+							}
+						],
+						"required": [
+							"name",
+							"course",
+							"points"
+						],
+						"properties": {
+							"name": {
+								"$id": "#/properties/runaways/items/anyOf/0/properties/name",
+								"type": "array",
+								"title": "The name schema",
+								"description": "Names of the runaway",
+								"default": [],
+								"examples": [
+									[
+										"22",
+										"17"
+									]
+								],
+								"additionalItems": true,
+								"items": {
+									"$id": "#/properties/runaways/items/anyOf/0/properties/name/items",
+									"anyOf": [
+										{
+											"$id": "#/properties/runaways/items/anyOf/0/properties/name/items/anyOf/0",
+											"type": "string",
+											"title": "The first anyOf schema",
+											"description": "One of the two names of the runaway",
+											"default": "",
+											"examples": [
+												"22",
+												"17"
+											]
+										}
+									]
+								}
+							},
+							"course": {
+								"$id": "#/properties/runaways/items/anyOf/0/properties/course",
+								"type": "integer",
+								"title": "The course schema",
+								"description": "Course angle of the runaway (first one)",
+								"default": 0,
+								"examples": [
+									227
+								]
+							},
+							"points": {
+								"$id": "#/properties/runaways/items/anyOf/0/properties/points",
+								"type": "array",
+								"title": "The points schema",
+								"description": "The two points of the extremity of the runaway",
+								"default": [],
+								"examples": [
+									[
+										"1",
+										"2"
+									]
+								],
+								"additionalItems": true,
+								"items": {
+									"$id": "#/properties/runaways/items/anyOf/0/properties/points/items",
+									"anyOf": [
+										{
+											"$id": "#/properties/runaways/items/anyOf/0/properties/points/items/anyOf/0",
+											"type": "string",
+											"title": "The first anyOf schema",
+											"description": "A point of the extremity of the runaway",
+											"default": "",
+											"examples": [
+												"1",
+												"2"
+											]
+										}
+									]
+								}
+							}
+						},
+						"additionalProperties": true
+					}
+				]
+			}
+		},
+		"points": {
+			"$id": "#/properties/points",
+			"type": "object",
+			"title": "The points schema",
+			"description": "A list of points of that compose the airport",
+			"default": {},
+			"examples": [
+				{
+					"1": {
+						"position": {
+							"x": 10,
+							"y": 10
+						},
+						"connections": [
+							"2"
+						]
+					},
+					"2": {
+						"position": {
+							"x": 15,
+							"y": 15
+						},
+						"connections": [
+							"1",
+							"3"
+						]
+					},
+					"3": {
+						"position": {
+							"x": 20,
+							"y": 10
+						},
+						"connections": [
+							"2"
+						]
+					}
+				}
+			],
+			"additionalProperties": true
+		}
+	},
+	"additionalProperties": true
+}
